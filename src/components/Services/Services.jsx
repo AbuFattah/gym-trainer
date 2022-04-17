@@ -11,8 +11,10 @@ const Services = () => {
 
   return (
     <div className="container mx-auto px-4">
-      <h1 className="text-3xl uppercase text-center my-10">Services</h1>
-      <p className="text-center text-lg max-w-[900px] mx-auto mb-6">
+      <h1 className="text-3xl uppercase text-secondary text-center my-10">
+        Services
+      </h1>
+      <p className="text-center text-lg max-w-[900px] mx-auto mb-6 text-slate-500">
         I offer a comprehensive service which goes above and beyond to get you
         in the ​best shape of your life and feeling great, whether you're a
         complete beginner, or have hit a plateau.​
@@ -21,9 +23,11 @@ const Services = () => {
       <div className="flex justify-center flex-wrap">
         {services.map((service) => (
           <Service
+            key={service.id}
             name={service.name}
             description={service.description}
             image={service.image}
+            price={service.price}
           />
         ))}
       </div>
