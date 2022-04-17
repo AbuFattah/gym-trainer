@@ -2,18 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @layer components {
+@layer components {
   .banner {
-    background-color: orange;
     min-height: 100vh;
     background-image: url("./assets/images/banner-img.png");
-    background-re
+    background-repeat: no-repeat;
+    background-size: cover;
   }
-} */
-
-.banner {
-  min-height: 100vh;
-  background-image: url("./assets/images/banner-img.png");
-  background-repeat: no-repeat;
-  background-size: cover;
 }

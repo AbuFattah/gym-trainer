@@ -1,0 +1,20 @@
+[
+  {
+    "id": "strength-training",
+    "name": "Strength training",
+    "image": "https://i.ibb.co/bPD909g/strength-trainer.jpg",
+    "description": "A one to one health and lifestyle overhaul for people who need the extra accountability and guidance to reach their goals."
+  },
+  {
+    "id": "nutrition-coaching",
+    "name": "Nutrition Coaching",
+    "image": "https://i.ibb.co/ZJVcj1c/nutrition.jpg",
+    "description": "Get a handle on your nutrition once and for all with extensive nutrition and habit coaching to ensure you stay on track."
+  },
+  {
+    "id": "mindset-course",
+    "name": "Mindset Course",
+    "image": "https://i.ibb.co/PxR047z/mindset.jpg",
+    "description": "Transform your mindset in as little as 5 weeks - Set meaningful goals, change your habits, gain willpower and boost motivation."
+  }
+]
