@@ -2,12 +2,12 @@ import React from "react";
 
 const Blogs = () => {
   return (
-    <div className="bg-accent">
-      <div>
-        <p className="text-semibold text-lg">
+    <div className="container mx-auto  px-8 text-lg">
+      <div className="my-5">
+        <h1 className="font-bold text-2xl my-2">
           Difference between authorization and authentication?
-        </p>
-        <ul className="list-disc">
+        </h1>
+        <ul className="list-disc pl-5">
           <li>
             Authorization is a process which determines the level of access a
             user has to certain files and application
@@ -18,8 +18,8 @@ const Blogs = () => {
         </ul>
       </div>
 
-      <div>
-        <p className="text-semibold text-lg">
+      <div className="my-5">
+        <p className="font-bold text-2xl my-2">
           Why are you using firebase? What other options do you have to
           implement authentication?
         </p>
@@ -40,8 +40,8 @@ const Blogs = () => {
         </p>
       </div>
 
-      <div>
-        <p className="text-lg text-bold">
+      <div className="my-5">
+        <p className="font-bold text-2xl my-2">
           What other services does firebase provide other than authentication?
         </p>
 
@@ -49,7 +49,7 @@ const Blogs = () => {
           Firebase is considered as a Backend-as-a-Service (BaaS) which allows
           users to connect a full fledged backend with minimal code. Services
           that firebase offers, include:
-          <ul className="list-disc">
+          <ul className="list-disc placeholder-red-50">
             <li>Authentication</li>
             <li>Hosting</li>
             <li>Realtime Database</li>

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import { HiMenuAlt3 as HamIcon } from "react-icons/hi";
 import { AiOutlineCloseCircle as CloseIcon } from "react-icons/ai";
 const Header = () => {
   const location = useLocation();
   const [show, setShow] = useState(false);
+  const navigate = useNavigate();
   return (
     <>
       <header className="text-black sticky w-full top-0 z-20 bg-white">
@@ -24,16 +26,16 @@ const Header = () => {
             />
             <ul className="flex flex-col md:flex-row gap-10 text-xl">
               <li>
-                <Link
+                <HashLink
                   className={`${
-                    location.pathname === "/services"
+                    location.pathname === "/#services"
                       ? "text-secondary"
                       : "text-black"
                   }`}
-                  to="services"
+                  to="/#services"
                 >
                   Services
-                </Link>
+                </HashLink>
               </li>
               <li>
                 <Link
@@ -78,7 +80,12 @@ const Header = () => {
               </li>
             </ul>
           </nav>
-          <button className="btn btn-primary text-white btn-md rounded-full">
+          <button
+            onClick={() => {
+              navigate("/register");
+            }}
+            className="btn btn-primary text-white btn-md rounded-full"
+          >
             Register
           </button>
           <HamIcon

@@ -1,7 +1,11 @@
 module.exports = {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        gray: "#ccc",
+      },
+    },
   },
   daisyui: {
     themes: [
@@ -13,7 +17,7 @@ module.exports = {
 
           accent: "#9ec4fb",
 
-          neutral: "#fff",
+          neutral: "#142F43",
 
           "base-100": "#f2f4f8",
 
