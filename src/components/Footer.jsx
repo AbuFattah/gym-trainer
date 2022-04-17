@@ -4,7 +4,7 @@ const Footer = () => {
   const footerYear = new Date().getFullYear();
   return (
     <footer className="">
-      <footer className="footer footer-center p-10 bg-neutral text-accent">
+      <footer className="footer footer-center p-10 bg-primary text-accent">
         <div>
           <svg
             width="50"
@@ -20,8 +20,21 @@ const Footer = () => {
           <p className="font-bold">
             Andrew Trains
             <br />
-            Providing quality training since 500BC
+            Providing quality training since 10,000BC
           </p>
+          {/* <p>
+            Design inspiration:{" "}
+            <a href="https://www.strengthcoachglasgow.co.uk/">
+              Strength Coach Glasgow
+            </a>{" "}
+          </p>
+          <p>
+            Content inspiration:{" "}
+            <a href="https://www.markpersonaltraining.com/">
+              Mark Personal Training
+            </a>{" "}
+          </p> */}
+
           <p>Copyright © {footerYear} - All right unreserved</p>
         </div>
         <div>

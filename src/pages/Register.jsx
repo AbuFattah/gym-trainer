@@ -22,8 +22,8 @@ const Register = () => {
       </h1>
       <h1 className=" text-xl text-center my-5">
         Already a member?{" "}
-        <Link to="/login" className="text-secondary">
-          Login
+        <Link to="/signin" className="text-secondary">
+          Sign In
         </Link>
       </h1>
       <div className="container mx-auto px-4 flex items-center justify-center">

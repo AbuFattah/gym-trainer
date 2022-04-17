@@ -2,7 +2,10 @@ import React from "react";
 
 const Blogs = () => {
   return (
-    <div className="container mx-auto  px-8 text-lg">
+    <div
+      style={{ height: "calc(100vh - 108px)" }}
+      className="container mx-auto  px-8 text-lg"
+    >
       <div className="my-5">
         <h1 className="font-bold text-2xl my-2">
           Difference between authorization and authentication?
@@ -49,16 +52,10 @@ const Blogs = () => {
           Firebase is considered as a Backend-as-a-Service (BaaS) which allows
           users to connect a full fledged backend with minimal code. Services
           that firebase offers, include:
-          <ul className="list-disc placeholder-red-50">
-            <li>Authentication</li>
-            <li>Hosting</li>
-            <li>Realtime Database</li>
-            <li>Firestore Database</li>
-            <li>Cloud Functions</li>
-            <li>Cloud Messaging</li>
-            <li>Cloud Storage</li>
-            <li>Firebase ML</li>
-          </ul>
+          <span className="font-semibold">
+            Authentication, Hosting, Realtime Database, Firestore Database,
+            Cloud Functions, Cloud Messaging, Cloud Storage, and Firebase ML.
+          </span>
         </p>
       </div>
     </div>

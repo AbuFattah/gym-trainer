@@ -2,16 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @layer components {
+@layer components {
   .banner {
-    min-height: 100vh;
+    min-height: calc(100vh - 108px);
     background-image: url("./assets/images/banner-img.png");
     background-repeat: no-repeat;
     background-size: cover;
   }
-} */
+  .required-field::after {
+    content: " * ";
+    color: #d64343;
+  }
+}
 
-.required-field::after {
-  content: " * ";
-  color: #d64343;
+html {
+  scroll-behavior: smooth;
 }

@@ -11,7 +11,7 @@ const Banner = () => {
         <h1 className="text-5xl md:text-8xl font-bold italic leading-normal">
           PERSONAL TRAINING
         </h1>
-        <p className="text-4xl text-accent">
+        <p className="text-4xl text-white">
           Premium online personal training with Andrew Adams.
         </p>
         <button className="btn btn-accent">START HERE</button>

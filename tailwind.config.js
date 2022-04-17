@@ -4,6 +4,7 @@ module.exports = {
     extend: {
       colors: {
         gray: "#ccc",
+        lightBlue: "#090d55",
       },
     },
   },
@@ -11,7 +12,7 @@ module.exports = {
     themes: [
       {
         mytheme: {
-          primary: "#02044A",
+          primary: "#050733",
 
           secondary: "#0C75FF",
 

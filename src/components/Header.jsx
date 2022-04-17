@@ -7,13 +7,14 @@ const Header = () => {
   const location = useLocation();
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
+
   return (
     <>
       <header className="text-black sticky w-full top-0 z-20 bg-white">
         <div className="container py-5 px-10 mx-auto flex  gap-10  justify-between items-center">
-          <Link to="/" className="text-3xl font-semibold">
+          <HashLink to="/#" className="text-3xl font-semibold">
             <span className="text-secondary font-bold">A</span>Trains
-          </Link>
+          </HashLink>
 
           <nav
             className={` absolute md:static ${
@@ -28,9 +29,7 @@ const Header = () => {
               <li>
                 <HashLink
                   className={`${
-                    location.pathname === "/#services"
-                      ? "text-secondary"
-                      : "text-black"
+                    location.pathname === "/" ? "text-secondary" : "text-black"
                   }`}
                   to="/#services"
                 >
