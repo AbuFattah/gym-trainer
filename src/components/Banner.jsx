@@ -6,9 +6,9 @@ const Banner = () => {
     console.log("yo banner");
   }, []);
   return (
-    <div className="banner flex items-center justify-center text-white">
+    <div className="banner flex items-center justify-center text-white px-5">
       <div className="text-center space-y-12">
-        <h1 className="text-5xl md:text-8xl font-bold italic">
+        <h1 className="text-5xl md:text-8xl font-bold italic leading-normal">
           PERSONAL TRAINING
         </h1>
         <p className="text-4xl text-accent">

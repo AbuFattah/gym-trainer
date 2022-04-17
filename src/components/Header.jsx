@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { HiMenuAlt3 as HamIcon } from "react-icons/hi";
 import { AiOutlineCloseCircle as CloseIcon } from "react-icons/ai";
 const Header = () => {
+  const location = useLocation();
   const [show, setShow] = useState(false);
   return (
     <>
@@ -13,41 +14,76 @@ const Header = () => {
           </Link>
 
           <nav
-            className={`${
-              show ? "absolute" : "hidden"
-            } md:block top-0 left-0 w-full md:w-auto h-fit text-center bg-white  py-5`}
+            className={` absolute md:static ${
+              show ? "top-0" : "top-[-500px]"
+            } left-0 w-full md:w-auto h-fit text-center bg-white  py-5 ease-in-out duration-200`}
           >
             <CloseIcon
               onClick={() => setShow((prevState) => !prevState)}
-              className="absolute md:hidden right-10 top-10 text-3xl cursor-pointer text-secondary"
+              className="absolute md:hidden right-10 top-10 text-3xl cursor-pointer text-secondary hover:text-black ease-in-out duration-300"
             />
-            <ul className="flex flex-col md:flex-row gap-10 text-xl text-secondary">
-              <li></li>
+            <ul className="flex flex-col md:flex-row gap-10 text-xl">
               <li>
-                <Link to="services">Services</Link>
+                <Link
+                  className={`${
+                    location.pathname === "/services"
+                      ? "text-secondary"
+                      : "text-black"
+                  }`}
+                  to="services"
+                >
+                  Services
+                </Link>
               </li>
               <li>
-                <Link to="Contact">Contact</Link>
+                <Link
+                  className={`${
+                    location.pathname === "/contact"
+                      ? "text-secondary"
+                      : "text-black"
+                  }`}
+                  to="contact"
+                >
+                  Contact
+                </Link>
               </li>
               <li>
-                <Link to="About">About</Link>
+                <Link
+                  className={`${
+                    location.pathname === "/about"
+                      ? "text-secondary"
+                      : "text-black"
+                  }`}
+                  to="about"
+                >
+                  About
+                </Link>
               </li>
               <li>
-                <Link to="Blogs">Blogs</Link>
+                <Link
+                  className={`${
+                    location.pathname === "/blogs"
+                      ? "text-secondary"
+                      : "text-black"
+                  }`}
+                  to="blogs"
+                >
+                  Blogs
+                </Link>
               </li>
               <li>
-                <button className="inline md:hidden btn btn-info text-white btn-md rounded-full">
+                <button className="inline md:hidden btn btn-info text-white btn-md rounded">
                   Register
                 </button>
               </li>
             </ul>
           </nav>
-          <button className="btn btn-info text-white btn-md rounded-full">
+          <button className="btn btn-primary text-white btn-md rounded-full">
             Register
           </button>
           <HamIcon
             onClick={() => setShow((prevState) => !prevState)}
-            className="block md:hidden text-3xl hover:text-secondary ease-in cursor-pointer"
+            className="block md:hidden text-3xl hover:text-secondary cursor-pointer ease-in-out duration-300"
           />
         </div>
       </header>
