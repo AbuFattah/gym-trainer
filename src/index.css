@@ -15,13 +15,6 @@
   }
 }
 
-.about-div {
-  background-image: linear-gradient(90deg, #666, white);
-  display: inline-block;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
 html {
   scroll-behavior: smooth;
 }

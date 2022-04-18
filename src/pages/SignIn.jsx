@@ -60,8 +60,8 @@ const Register = () => {
   });
 
   if (firebaseError) {
-    console.log(googleError);
-    // toast.error("Something went wrong");
+    // console.log(googleError);
+    // toast.error("Sign In failed");
   }
   if (loading || googleLoading) {
     return <Loading />;
@@ -111,9 +111,7 @@ const Register = () => {
                 <p className="text-red-600">{formik.errors.email}</p>
               )}
               <Email
-                className={`text-secondary absolute left-3 top-3 text-xl ${
-                  focus.email ? "text-secondary" : "text-gray"
-                }`}
+                className={`text-secondary absolute left-3 top-3 text-xl`}
               />
             </div>
           </div>
@@ -139,15 +137,11 @@ const Register = () => {
                 <p className="text-red-600">{formik.errors.password}</p>
               )}
               <Lock
-                className={`text-secondary absolute left-3 top-3 text-xl ${
-                  focus.password ? "text-secondary" : "text-gray"
-                }`}
+                className={`text-secondary absolute left-3 top-3 text-xl `}
               />
               <EyeOpenIcon
                 onClick={() => setShowPassword(!showPassword)}
-                className={`cursor-pointer text-slate-500 absolute right-3 top-3 text-xl ${
-                  focus.password ? "text-secondary" : "text-gray"
-                }`}
+                className={`cursor-pointer text-slate-500 absolute right-3 top-3 text-xl `}
               />
             </div>
           </div>

@@ -10,7 +10,7 @@ import {
   BsEyeFill as EyeOpenIcon,
   BsEyeSlashFill as EyeClosedIcon,
 } from "react-icons/bs";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import {
@@ -29,6 +29,7 @@ const Register = () => {
     useSignInWithGoogle(auth);
 
   const navigate = useNavigate();
+  const location = useLocation();
   const [showPassword, setShowPassword] = useState(false);
   const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
   // control input focus
