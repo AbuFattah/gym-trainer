@@ -13,7 +13,10 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import { auth } from "../firebase.config";
 import Loading from "../components/Loading";
 // imports end
@@ -21,6 +24,9 @@ import Loading from "../components/Loading";
 const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, firebaseError] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+  const [signInWithGoogle, googleUser, googleLoading, googleError] =
+    useSignInWithGoogle(auth);
 
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
@@ -65,17 +71,24 @@ const Register = () => {
   });
 
   if (firebaseError) {
-    toast.error("Something went wrong");
+    toast.error(firebaseError);
   }
-  if (loading) {
+  if (googleError) {
+    toast.error(googleError);
+  }
+  if (loading || googleLoading) {
     return <Loading />;
   }
-  if (user?.user?.uid) {
+  if (user) {
     console.log("yo");
     toast.success("Registration Successful");
     navigate("/");
   }
-  console.log(formik.touched);
+
+  if (googleUser) {
+    toast.success("Registration Successful");
+    navigate(location?.state?.from || "/");
+  }
 
   return (
     <div className="bg-primary p-10 text-white">
@@ -239,7 +252,10 @@ const Register = () => {
       <p className="text-center my-3 text-slate-400">
         {location.pathname === "/register" ? "Sign Up" : "Sign In"} with
       </p>
-      <button className="flex items-center justify-center bg-white p-2 rounded-full mx-auto mt-5">
+      <button
+        className="flex items-center justify-center bg-white p-2 rounded-full mx-auto mt-5"
+        onClick={() => signInWithGoogle()}
+      >
         <img className="w-8 h-8" src={googleIcon} alt="google" />
       </button>
     </div>

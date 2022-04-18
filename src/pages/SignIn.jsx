@@ -44,10 +44,8 @@ const Register = () => {
   // Add Formik
   const formik = useFormik({
     initialValues: {
-      name: "",
       email: "",
       password: "",
-      passwordConfirm: "",
     },
     // Form validation
     validationSchema: Yup.object({
