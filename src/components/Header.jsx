@@ -14,8 +14,8 @@ const Header = () => {
 
   return (
     <>
-      <header className="text-black sticky w-full top-0 z-20 bg-white">
-        <div className="container py-5 px-10 mx-auto flex  gap-10  justify-between items-center">
+      <header className="shadow text-black sticky w-full top-0 z-20 bg-white">
+        <div className="container py-2 px-10 mx-auto flex  gap-10  justify-between items-center">
           <HashLink to="/#" className="text-3xl font-semibold">
             <span className="text-secondary font-bold">A</span>Trains
           </HashLink>
@@ -40,7 +40,7 @@ const Header = () => {
                   Services
                 </HashLink>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   className={`hover:text-secondary duration-200 ease-in ${
                     location.pathname === "/contact"
@@ -51,7 +51,7 @@ const Header = () => {
                 >
                   Contact
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link
                   className={`hover:text-secondary duration-200 ease-in ${
@@ -76,11 +76,6 @@ const Header = () => {
                   Blogs
                 </Link>
               </li>
-              <li>
-                <button className="inline md:hidden btn btn-info text-white btn-md rounded">
-                  Sign In
-                </button>
-              </li>
             </ul>
           </nav>
           <button
@@ -92,7 +87,7 @@ const Header = () => {
               }
               navigate("/signin");
             }}
-            className="btn btn-primary text-white btn-md rounded-full"
+            className="btn btn-primary btn-sm  text-white md:btn-md rounded-full"
           >
             {user ? "Sign Out" : "Sign In"}
           </button>

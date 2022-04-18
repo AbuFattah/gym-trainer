@@ -1,11 +1,16 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Blogs = () => {
+  const navigate = useNavigate();
   return (
     <div
       style={{ minHeight: "calc(100vh - 108px)", lineHeight: "36px" }}
       className="container mx-auto  px-8 text-xl  max-w-[750px] "
     >
+      <button className="btn btn-ghost my-5" onClick={() => navigate("/")}>
+        Go Home
+      </button>
       <div className="my-10">
         <h1 className="font-semibold text-4xl my-8">
           Difference between authorization and authentication?

@@ -14,6 +14,7 @@ import NotFound from "./pages/NotFound";
 import ForgotPassword from "./pages/ForgotPassword";
 import Loading from "./components/Loading";
 import PrivateRoute from "./components/PrivateRoute";
+import About from "./pages/About";
 function App() {
   return (
     <>
@@ -23,6 +24,8 @@ function App() {
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/register" element={<Register />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/about" element={<About />} />
+
         <Route path="/forgot-password" element={<ForgotPassword />} />
 
         <Route

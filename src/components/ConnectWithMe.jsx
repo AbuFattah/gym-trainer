@@ -5,7 +5,7 @@ import twitter from "../assets/images/twitter.png";
 import linkedin from "../assets/images/linkedin.png";
 const ConnectWithMe = () => {
   return (
-    <div className="bg-slate-200">
+    <div className="bg-slate-200 shadow">
       <div className="container mx-auto p-10">
         <h1 className="text-center text-4xl  mb-5 text-lightBlue">
           CONNECT WITH ME

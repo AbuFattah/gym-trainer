@@ -5,7 +5,7 @@ import { HashLink } from "react-router-hash-link/dist/react-router-hash-link.cjs
 const Footer = () => {
   const footerYear = new Date().getFullYear();
   return (
-    <footer className="footer p-10 bg-neutral text-accent">
+    <footer className="footer p-10  lg:pl-52 bg-neutral text-accent">
       <div>
         <svg
           width="50"

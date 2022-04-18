@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function NotFound() {
   return (
     <div
-      style={{ minHeight: "calc(100vh - 370px)" }}
+      style={{ minHeight: "calc(100vh - 206px + 84px)" }}
       className=" flex items-center justify-center"
     >
       <div className="max-w-lg mx-auto text-center my-5">

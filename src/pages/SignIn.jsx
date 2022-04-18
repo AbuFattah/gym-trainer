@@ -61,7 +61,7 @@ const Register = () => {
   });
 
   if (firebaseError) {
-    toast.error("Something went wrong");
+    toast.error(firebaseError);
   }
   if (loading || googleLoading) {
     return <Loading />;

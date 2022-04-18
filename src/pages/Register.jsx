@@ -82,7 +82,7 @@ const Register = () => {
   if (user) {
     console.log("yo");
     toast.success("Registration Successful");
-    navigate("/");
+    navigate(location?.state?.from || "/");
   }
 
   if (googleUser) {
