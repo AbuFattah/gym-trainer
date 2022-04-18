@@ -3,28 +3,27 @@ import React from "react";
 const Blogs = () => {
   return (
     <div
-      style={{ height: "calc(100vh - 108px)" }}
-      className="container mx-auto  px-8 text-lg"
+      style={{ minHeight: "calc(100vh - 108px)", lineHeight: "36px" }}
+      className="container mx-auto  px-8 text-xl  max-w-[750px] "
     >
-      <div className="my-5">
-        <h1 className="font-bold text-2xl my-2">
+      <div className="my-10">
+        <h1 className="font-semibold text-4xl my-8">
           Difference between authorization and authentication?
         </h1>
-        <ul className="list-disc pl-5">
+        <ul className=" pl-5">
           <li>
-            Authorization is a process which determines the level of access a
+            ⇛ Authorization is a process which determines the level of access a
             user has to certain files and application
           </li>
           <li>
-            Authentication is a process which identifies and verifies a user.
+            ⇛ Authentication is a process which identifies and verifies a user.
           </li>
         </ul>
       </div>
 
-      <div className="my-5">
-        <p className="font-bold text-2xl my-2">
-          Why are you using firebase? What other options do you have to
-          implement authentication?
+      <div className="my-20">
+        <p className="font-semibold text-4xl my-8">
+          Why firebase? What are the firebase authentication alternatives?
         </p>
 
         <p>
@@ -39,21 +38,23 @@ const Blogs = () => {
         <p>
           Supabase is a new alternative of firebase for authentication. It
           provides even simpler code than firebase. We can also use node js
-          blended with passport js for authentication.
+          blended with passport js for authentication also.
         </p>
       </div>
 
-      <div className="my-5">
-        <p className="font-bold text-2xl my-2">
+      <div className="my-20">
+        <p className="font-semibold text-4xl my-8">
           What other services does firebase provide other than authentication?
         </p>
 
         <p>
           Firebase is considered as a Backend-as-a-Service (BaaS) which allows
-          users to connect a full fledged backend with minimal code. Services
-          that firebase offers, include:
-          <span className="font-semibold">
-            Authentication, Hosting, Realtime Database, Firestore Database,
+          users to connect a full fledged backend with minimal code.
+        </p>
+        <p>
+          Services that firebase offers, include:
+          <span className="font-semibold block">
+            ⇛ Authentication, Hosting, Realtime Database, Firestore Database,
             Cloud Functions, Cloud Messaging, Cloud Storage, and Firebase ML.
           </span>
         </p>

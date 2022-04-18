@@ -19,7 +19,7 @@ const Header = () => {
           <nav
             className={` absolute md:static ${
               show ? "top-0" : "top-[-500px]"
-            } left-0 w-full md:w-auto h-fit text-center bg-white  py-5 ease-in-out duration-200`}
+            } left-0 w-full md:w-auto h-fit text-center bg-white  py-5 ease-in-out duration-200 font-semibold`}
           >
             <CloseIcon
               onClick={() => setShow((prevState) => !prevState)}
@@ -28,7 +28,7 @@ const Header = () => {
             <ul className="flex flex-col md:flex-row gap-10 text-xl">
               <li>
                 <HashLink
-                  className={`${
+                  className={`hover:text-secondary duration-200 ease-in ${
                     location.pathname === "/" ? "text-secondary" : "text-black"
                   }`}
                   to="/#services"
@@ -38,7 +38,7 @@ const Header = () => {
               </li>
               <li>
                 <Link
-                  className={`${
+                  className={`hover:text-secondary duration-200 ease-in ${
                     location.pathname === "/contact"
                       ? "text-secondary"
                       : "text-black"
@@ -50,9 +50,9 @@ const Header = () => {
               </li>
               <li>
                 <Link
-                  className={`${
+                  className={`hover:text-secondary duration-200 ease-in ${
                     location.pathname === "/about"
-                      ? "text-secondary"
+                      ? "text-secondary "
                       : "text-black"
                   }`}
                   to="about"
@@ -62,7 +62,7 @@ const Header = () => {
               </li>
               <li>
                 <Link
-                  className={`${
+                  className={` hover:text-secondary duration-200 ease-in ${
                     location.pathname === "/blogs"
                       ? "text-secondary"
                       : "text-black"
