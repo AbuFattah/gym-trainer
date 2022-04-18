@@ -72,7 +72,7 @@ const Register = () => {
     navigate(location?.state?.from || "/");
   }
   if (googleUser) {
-    toast.success("Registration Successful");
+    toast.success("Sign In Successful");
     navigate(location?.state?.from || "/");
   }
 
