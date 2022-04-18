@@ -4,20 +4,20 @@
     "name": "Strength training",
     "image": "https://i.ibb.co/bPD909g/strength-trainer.jpg",
     "description": "A one-on-one health and lifestyle transformation for those who require extra accountability and direction in order to achieve their objectives.",
-    "price": 15
+    "price": 150
   },
   {
     "id": "nutrition-coaching",
     "name": "Nutrition Coaching",
     "image": "https://i.ibb.co/ZJVcj1c/nutrition.jpg",
     "description": "To ensure you stay on track, get a handle on your nutrition once and for all with intensive nutrition and habit coaching. ",
-    "price": 22
+    "price": 220
   },
   {
     "id": "mindset-course",
     "name": "Mindset Course",
     "image": "https://i.ibb.co/PxR047z/mindset.jpg",
     "description": "In as little as 5 weeks, you can change your thinking. Set significant goals, alter your habits, increase your willpower, and increase your motivation. ",
-    "price": 25
+    "price": 250
   }
 ]

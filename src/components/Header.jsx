@@ -3,7 +3,11 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { HiMenuAlt3 as HamIcon } from "react-icons/hi";
 import { AiOutlineCloseCircle as CloseIcon } from "react-icons/ai";
+import { auth } from "../firebase.config";
+import { signOut } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 const Header = () => {
+  const [user, loading, error] = useAuthState(auth);
   const location = useLocation();
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
@@ -74,18 +78,23 @@ const Header = () => {
               </li>
               <li>
                 <button className="inline md:hidden btn btn-info text-white btn-md rounded">
-                  Register
+                  Sign In
                 </button>
               </li>
             </ul>
           </nav>
           <button
             onClick={() => {
-              navigate("/register");
+              if (user) {
+                signOut(auth);
+                navigate("/");
+                return;
+              }
+              navigate("/signin");
             }}
             className="btn btn-primary text-white btn-md rounded-full"
           >
-            Register
+            {user ? "Sign Out" : "Sign In"}
           </button>
           <HamIcon
             onClick={() => setShow((prevState) => !prevState)}

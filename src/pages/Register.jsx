@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import { toast } from "react-toastify";
 import googleIcon from "../assets/images/svg/googleIcon.svg";
 import {
   RiUser4Line as User,
@@ -9,10 +10,19 @@ import {
   BsEyeFill as EyeOpenIcon,
   BsEyeSlashFill as EyeClosedIcon,
 } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { auth } from "../firebase.config";
+import Loading from "../components/Loading";
+// imports end
+
 const Register = () => {
+  const [createUserWithEmailAndPassword, user, loading, firebaseError] =
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
   // control input focus
@@ -35,8 +45,11 @@ const Register = () => {
     validationSchema: Yup.object({
       name: Yup.string().max(15, "Must be 15 characters or less"),
       email: Yup.string().email("Invalid email address").required("required"),
-      password: Yup.string().required("required"),
+      password: Yup.string()
+        .min(6, "Must be 6 characters or more")
+        .required("required"),
       passwordConfirm: Yup.string()
+        .min(6, "Must be 6 characters or more")
         .required("required")
         .when("password", {
           is: (val) => (val && val.length > 0 ? true : false),
@@ -46,9 +59,22 @@ const Register = () => {
           ),
         }),
     }),
-    onSubmit: (values) => {},
+    onSubmit: (values) => {
+      createUserWithEmailAndPassword(values.email, values.password);
+    },
   });
 
+  if (firebaseError) {
+    toast.error("Something went wrong");
+  }
+  if (loading) {
+    return <Loading />;
+  }
+  if (user?.user?.uid) {
+    console.log("yo");
+    toast.success("Registration Successful");
+    navigate("/");
+  }
   console.log(formik.touched);
 
   return (

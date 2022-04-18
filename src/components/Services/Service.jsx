@@ -19,7 +19,7 @@ const Service = ({ name, description, image, price }) => {
 
         <div className="card-actions justify-end">
           <button
-            onClick={navigate.bind(null, "/checkout")}
+            onClick={navigate.bind(null, `/checkout/${name}`)}
             className="btn btn-primary w-full mt-5"
           >
             Buy Now

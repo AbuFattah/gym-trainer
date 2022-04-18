@@ -10,9 +10,10 @@ import {
   RiLockPasswordLine as Lock,
 } from "react-icons/ri";
 import { AiOutlineMail as Email } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const Checkout = () => {
+  const { productName } = useParams();
   const [focus, setFocus] = useState({
     email: false,
     name: false,
@@ -27,7 +28,7 @@ const Checkout = () => {
         <div className="checkout-container p-5 md:p-20 rounded-xl text-white bg-primary flex flex-col md:flex-row gap-5 md:gap-10 justify-between">
           <div className="left">
             <h1 className="font-semibold text-2xl ">You've Chosen</h1>
-            <p className="text-secondary text-2xl">Strength Training</p>
+            <p className="text-secondary text-2xl">{productName}</p>
             <p className=" text-slate-400 my-5 mb-20">
               Fill up the form I will get back to you within 24 hours
             </p>
@@ -42,7 +43,7 @@ const Checkout = () => {
             </div>
             <div className="locationDiv  flex gap-5 my-2 p-3 rounded-md w-[250px]">
               <LocationIcon className="text-secondary text-lg" />
-              <p>221, Baker Street, Uk</p>
+              <p>221B Baker Street</p>
             </div>
           </div>
           <div className="right">
