@@ -32,7 +32,6 @@ const Register = () => {
   const location = useLocation();
 
   const [showPassword, setShowPassword] = useState(false);
-  const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
   // control input focus
   const [focus, setFocus] = useState({
     email: false,
@@ -61,14 +60,15 @@ const Register = () => {
   });
 
   if (firebaseError) {
-    toast.error(firebaseError);
+    console.log(googleError);
+    // toast.error("Something went wrong");
   }
   if (loading || googleLoading) {
     return <Loading />;
   }
-  if (user) {
+  if (user?.user.uid) {
     console.log("yo");
-    toast.success("Registration Successful");
+    toast.success("Sign  Successful");
     navigate(location?.state?.from || "/");
   }
   if (googleUser) {
