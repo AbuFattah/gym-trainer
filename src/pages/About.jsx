@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import profileImg from "../assets/images/profile-img.png";
 const About = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <div
@@ -9,8 +11,14 @@ const About = () => {
           background:
             "linear-gradient(90deg, rgba(5,7,51,1) 0%, rgba(13,53,112,1) 100%)",
         }}
-        className="h-[150px] md:h-[250px] flex flex-col justify-center mdjustify-end p-10"
+        className="relative h-[150px] md:h-[250px] flex flex-col justify-center mdjustify-end p-10"
       >
+        <button
+          className="absolute top-0 left-2 text-white btn btn-ghost"
+          onClick={() => navigate("/")}
+        >
+          Go Back
+        </button>
         <div className="container mx-auto p-10">
           <h1 className=" text-white text-4xl   md:text-8xl  font-semibold">
             ABOUT ME
