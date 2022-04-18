@@ -5,16 +5,52 @@ import {
   RiLockPasswordLine as Lock,
 } from "react-icons/ri";
 import { AiOutlineMail as Email } from "react-icons/ai";
+import {
+  BsEyeFill as EyeOpenIcon,
+  BsEyeSlashFill as EyeClosedIcon,
+} from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 const Register = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
+  // control input focus
   const [focus, setFocus] = useState({
     email: false,
     name: false,
     password: false,
     passwordConfirm: false,
   });
-  const nameRef = useRef();
-  const emailRef = useRef();
+
+  // Add Formik
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      password: "",
+      passwordConfirm: "",
+    },
+    // Form validation
+    validationSchema: Yup.object({
+      name: Yup.string().max(15, "Must be 15 characters or less"),
+      email: Yup.string().email("Invalid email address").required("required"),
+      password: Yup.string().required("required"),
+      passwordConfirm: Yup.string()
+        .required("required")
+        .when("password", {
+          is: (val) => (val && val.length > 0 ? true : false),
+          then: Yup.string().oneOf(
+            [Yup.ref("password")],
+            "Passwords do not match"
+          ),
+        }),
+    }),
+    onSubmit: (values) => {},
+  });
+
+  console.log(formik.touched);
+
   return (
     <div className="bg-primary p-10 text-white">
       <h1 className="font-semibold text-4xl text-center my-5">
@@ -27,18 +63,28 @@ const Register = () => {
         </Link>
       </h1>
       <div className="container mx-auto px-4 flex items-center justify-center">
-        <form className="p-5 rounded-lg bg-white text-black max-w-[450px] w-full">
+        <form
+          onSubmit={formik.handleSubmit}
+          className="p-5 rounded-lg bg-white text-black max-w-[450px] w-full"
+        >
           <div className="form-group">
             <label htmlFor=" name">Your Name</label>
             <div className="relative">
               <input
-                ref={nameRef}
+                className={`outline-none mt-3 block border-2 focus:border-secondary border-gray  rounded-md pl-10 py-2 w-full`}
                 name="name"
                 onFocus={setFocus.bind(null, { ...focus, name: true })}
-                onBlur={setFocus.bind(null, { ...focus, name: false })}
+                onChange={formik.handleChange}
+                value={formik.values.name}
+                onBlur={(e) => {
+                  setFocus({ ...focus, name: false });
+                  formik.handleBlur(e);
+                }}
                 type="text"
-                className={`outline-none mt-3 block border-2 focus:border-secondary border-gray  rounded-md pl-10 py-2 w-full`}
               />
+              {formik.touched.name && formik.errors.name && (
+                <p className="text-red-600">{formik.errors.name}</p>
+              )}
               <User
                 className={`absolute left-3 top-3 text-xl ${
                   focus.name ? "text-secondary" : "text-gray"
@@ -53,13 +99,19 @@ const Register = () => {
             <div className="relative">
               <input
                 required
-                name="email"
-                ref={emailRef}
-                type="email"
-                onFocus={setFocus.bind(null, { ...focus, email: true })}
-                onBlur={setFocus.bind(null, { ...focus, email: false })}
                 className={`outline-none focus:border-secondary border-gray mt-3 block border-2  rounded-md pl-10 py-2 w-full`}
+                name="email"
+                onFocus={setFocus.bind(null, { ...focus, email: true })}
+                onChange={formik.handleChange}
+                value={formik.values.email}
+                onBlur={(e) => {
+                  setFocus({ ...focus, email: false });
+                  formik.handleBlur(e);
+                }}
               />
+              {formik.touched.email && formik.errors.email && (
+                <p className="text-red-600">{formik.errors.email}</p>
+              )}
               <Email
                 className={`text-secondary absolute left-3 top-3 text-xl ${
                   focus.email ? "text-secondary" : "text-gray"
@@ -73,16 +125,29 @@ const Register = () => {
             </label>
             <div className="relative">
               <input
-                required
-                ref={emailRef}
-                type="password"
+                className={`outline-none focus:border-secondary border-gray mt-3 block border-2  rounded-md pl-10 py-2 w-full`}
+                type={`${showPassword ? "text" : "password"}`}
                 name="password"
                 onFocus={setFocus.bind(null, { ...focus, password: true })}
-                onBlur={setFocus.bind(null, { ...focus, password: false })}
-                className={`outline-none focus:border-secondary border-gray mt-3 block border-2  rounded-md pl-10 py-2 w-full`}
+                onChange={formik.handleChange}
+                value={formik.values.password}
+                onBlur={(e) => {
+                  setFocus({ ...focus, password: false });
+                  formik.handleBlur(e);
+                }}
               />
+
+              {formik.touched.password && formik.errors.password && (
+                <p className="text-red-600">{formik.errors.password}</p>
+              )}
               <Lock
                 className={`text-secondary absolute left-3 top-3 text-xl ${
+                  focus.password ? "text-secondary" : "text-gray"
+                }`}
+              />
+              <EyeOpenIcon
+                onClick={() => setShowPassword(!showPassword)}
+                className={`cursor-pointer text-slate-500 absolute right-3 top-3 text-xl ${
                   focus.password ? "text-secondary" : "text-gray"
                 }`}
               />
@@ -94,29 +159,47 @@ const Register = () => {
             </label>
             <div className="relative">
               <input
-                required
-                ref={emailRef}
-                type="password"
-                name="confirmPassword"
+                className={`outline-none focus:border-secondary border-gray mt-3 block border-2  rounded-md pl-10 py-2 w-full`}
+                type={`${showPasswordConfirm ? "text" : "password"}`}
+                name="passwordConfirm"
                 onFocus={setFocus.bind(null, {
                   ...focus,
-                  confirmPassword: true,
+                  passwordConfirm: true,
                 })}
-                onBlur={setFocus.bind(null, {
-                  ...focus,
-                  confirmPassword: false,
-                })}
-                className={`outline-none focus:border-secondary border-gray mt-3 block border-2  rounded-md pl-10 py-2 w-full`}
+                onChange={formik.handleChange}
+                value={formik.values.passwordConfirm}
+                onBlur={(e) => {
+                  setFocus({
+                    ...focus,
+                    passwordConfirm: false,
+                  });
+                  formik.handleBlur(e);
+                }}
               />
+              {formik.touched.passwordConfirm &&
+                formik.errors.passwordConfirm && (
+                  <p className="text-red-600">
+                    {formik.errors.passwordConfirm}
+                  </p>
+                )}
               <Lock
                 className={`text-secondary absolute left-3 top-3 text-xl ${
-                  focus.confirmPassword ? "text-secondary" : "text-gray"
+                  focus.passwordConfirm ? "text-secondary" : "text-gray"
+                }`}
+              />
+              <EyeOpenIcon
+                onClick={() => setShowPasswordConfirm(!showPasswordConfirm)}
+                className={`cursor-pointer text-slate-500 absolute right-3 top-3 text-xl ${
+                  focus.password ? "text-secondary" : "text-gray"
                 }`}
               />
             </div>
           </div>
           <div className="text-right">
-            <button className="btn btn-secondary my-6 w-40 inline">
+            <button
+              type="submit"
+              className="btn btn-secondary my-6 w-40 inline"
+            >
               Register Now
             </button>
           </div>

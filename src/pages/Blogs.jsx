@@ -10,7 +10,7 @@ const Blogs = () => {
         <h1 className="font-semibold text-4xl my-8">
           Difference between authorization and authentication?
         </h1>
-        <ul className=" pl-5">
+        <ul>
           <li>
             ⇛ Authorization is a process which determines the level of access a
             user has to certain files and application
